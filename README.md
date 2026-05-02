@@ -160,31 +160,30 @@ interface BrandState {
 
 ---
 
-## 📊 SEO & GEO Optimized
+## 📊 Search & AI Optimization
 
-This project is optimized for both traditional search engines and AI-powered engines:
+This project uses modern SEO best practices that benefit both traditional search engines and AI-powered tools:
 
-### AI Engine Optimization
-- ✅ **ChatGPT** (GPTBot)
-- ✅ **Perplexity** (PerplexityBot)
-- ✅ **Google Gemini** (Google-Extended)
-- ✅ **Claude** (Anthropic-ai, ClaudeBot)
-- ✅ **Microsoft Copilot** (CCBot)
+### Structured Data (JSON-LD)
+- ✅ **SoftwareApplication** schema — Helps search engines understand it's a software tool
+- ✅ **FAQPage** schema — 5 common questions with answers for rich snippets
+- ✅ **HowTo** schema — Step-by-step brand creation guide
+- ✅ **Organization** schema — KIKA brand entity
 
-### Structured Data
-- ✅ **SoftwareApplication** schema
-- ✅ **FAQPage** schema (5 Q&A)
-- ✅ **HowTo** schema (6-step guide)
-- ✅ **SoftwareSourceCode** schema
-- ✅ **Organization** schema
+### AI Crawler Friendly
+- ✅ **GPTBot** (ChatGPT) — Allowed
+- ✅ **PerplexityBot** — Allowed
+- ✅ **Google-Extended** (Gemini) — Allowed
+- ✅ **ClaudeBot** (Anthropic) — Allowed
+- ✅ **CCBot** (Copilot) — Allowed
 
 ### Traditional SEO
 - ✅ Meta tags (title, description, keywords)
 - ✅ Open Graph (Facebook, LinkedIn)
 - ✅ Twitter Cards
-- ✅ Pinterest Rich Pins
 - ✅ sitemap.xml
 - ✅ robots.txt
+- ✅ Semantic HTML structure
 
 ---
 

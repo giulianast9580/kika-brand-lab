@@ -1,4 +1,4 @@
-# 🔍 SEO & GEO Optimization Report
+# 🔍 Search & AI Optimization Report
 
 ## KIKA Brand Lab - https://brand.akakika.com
 
@@ -7,11 +7,11 @@
 
 ---
 
-## 📊 What Was Optimized
+## 📊 What Was Implemented
 
-### 1. **Generative Engine Optimization (GEO)** ✅
+### 1. **Structured Data (JSON-LD)** ✅
 
-Optimized for AI-powered search engines:
+Implemented schemas recognized by Google, Bing, and AI engines:
 - **ChatGPT** (GPTBot)
 - **Perplexity** (PerplexityBot)
 - **Google Gemini** (Google-Extended)
