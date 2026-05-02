@@ -316,3 +316,28 @@ For questions or issues:
 
 **Built with ❄️ by KIKA**  
 **Last Updated:** May 2, 2026
+
+---
+
+## 📖 About
+
+**KIKA Brand Lab** is a real-time brand design system built for designers and developers who need to create professional brand identities quickly. Whether you're a freelancer, agency, or startup, you can create, customize, and export complete brand guidelines in minutes.
+
+### Why Use KIKA Brand Lab?
+
+- ⚡ **Fast** — Create a complete brand identity in under 30 minutes
+- ♿ **Accessible** — Built-in WCAG contrast checking ensures your colors work for everyone
+- 📤 **Export-Ready** — Get CSS, JSON, and DESIGN.md files ready for developers
+- 🎨 **Visual** — See your brand applied to real mockups instantly
+- ⌨️ **Efficient** — Command palette (⌘K) for keyboard-driven workflow
+- 💰 **Free** — No signup, no paywall, no limits
+
+### Built By
+
+**KIKA** — Digital craft and macOS systems
+
+- **Main Site:** https://akakika.com
+- **Brand Lab:** https://brand.akakika.com
+- **GitHub:** https://github.com/dot-RealityTest
+- **Twitter:** [@Kika_Loren](https://twitter.com/Kika_Loren)
+- **Telegram:** @Kika_Loren
