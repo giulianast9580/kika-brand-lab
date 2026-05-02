@@ -160,33 +160,6 @@ interface BrandState {
 
 ---
 
-## 📊 Search & AI Optimization
-
-This project uses modern SEO best practices that benefit both traditional search engines and AI-powered tools:
-
-### Structured Data (JSON-LD)
-- ✅ **SoftwareApplication** schema — Helps search engines understand it's a software tool
-- ✅ **FAQPage** schema — 5 common questions with answers for rich snippets
-- ✅ **HowTo** schema — Step-by-step brand creation guide
-- ✅ **Organization** schema — KIKA brand entity
-
-### AI Crawler Friendly
-- ✅ **GPTBot** (ChatGPT) — Allowed
-- ✅ **PerplexityBot** — Allowed
-- ✅ **Google-Extended** (Gemini) — Allowed
-- ✅ **ClaudeBot** (Anthropic) — Allowed
-- ✅ **CCBot** (Copilot) — Allowed
-
-### Traditional SEO
-- ✅ Meta tags (title, description, keywords)
-- ✅ Open Graph (Facebook, LinkedIn)
-- ✅ Twitter Cards
-- ✅ sitemap.xml
-- ✅ robots.txt
-- ✅ Semantic HTML structure
-
----
-
 ## 📤 Export Format
 
 Export produces a ZIP file containing:
@@ -254,7 +227,6 @@ The UI reflects the brand palette through dynamic CSS custom properties:
 - **Logo/icon resizing** is drag-based on the right edge with pixel size preview
 - **Dark mode cards** use `mix(bg, midColor, ratio)` to avoid white backgrounds
 - **Accent backgrounds** use `mix(bg, accent, 0.15)` for better Tailwind compatibility
-- **AI crawler friendly** — robots.txt allows all major AI bots
 
 ---
 
