@@ -1,29 +1,64 @@
-# Kika Brand Lab 🎨
+# 🎨 KIKA Brand Lab
 
-> **A real-time brand design system playground** — Configure colors, fonts, logos, and export a complete brand specification with every part of the UI visually responding to your chosen palette.
+> **Real-time brand design system playground** — Create, customize, and export complete brand identities with live preview, WCAG accessibility checking, and one-click export.
 
-![License](https://img.shields.io/badge/license-private-blue)
-![React](https://img.shields.io/badge/React-19-61dafb)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6)
-![Vite](https://img.shields.io/badge/Vite-7-646cff)
-![Tailwind](https://img.shields.io/badge/Tailwind-v4-38bdf8)
+[![Live Site](https://img.shields.io/badge/Live-Site-0c8ce9?style=for-the-badge&logo=vercel)](https://brand.akakika.com)
+[![License](https://img.shields.io/badge/License-Private-blue?style=for-the-badge)](LICENSE)
+![React](https://img.shields.io/badge/React-19-61dafb?style=for-the-badge&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?style=for-the-badge&logo=typescript)
+![Vite](https://img.shields.io/badge/Vite-7-646cff?style=for-the-badge&logo=vite)
+![Tailwind](https://img.shields.io/badge/Tailwind-v4-38bdf8?style=for-the-badge&logo=tailwind-css)
+
+---
+
+## 🌐 **Live Demo**
+
+### 👉 [**https://brand.akakika.com**](https://brand.akakika.com)
+
+Try it now! Press **⌘K** for the command palette.
+
+---
 
 ## ✨ Features
 
-- **🎨 Live Brand Preview** — See your brand palette applied in real-time across the entire UI
-- **⌨️ Command Palette** — Keyboard-driven workflow (⌘K) for all brand controls
-- **🌗 Dark/Light Mode** — Full theme support with smart color mixing
-- **📤 Export System** — Generate DESIGN.md, CSS, JSON, and brand boards as ZIP
-- **📥 Import Support** — Load existing DESIGN.md files
-- **🖼️ Image Palette Extraction** — Upload images to auto-generate color palettes
-- **♿ WCAG Contrast Checker** — Ensure accessibility compliance
-- **↩️ Undo/Redo** — Full history timeline with visual state management
-- **✏️ Inline Editing** — Edit mockup text directly (⌘E)
-- **📐 Resizable Logo/Icon** — Drag-to-resize with pixel preview
+### 🎨 Design Tools
+- **Real-time Brand Preview** — See your brand applied across mockups instantly
+- **Color Palette Manager** — Create, edit, and reorder colors with drag-and-drop
+- **WCAG Contrast Checker** — Ensure accessibility compliance (AA & AAA)
+- **Typography System** — Choose from Google Fonts for heading, body, and mono
+- **Logo & Icon Upload** — Upload and resize with pixel-perfect controls
+- **Image Palette Extraction** — Auto-extract colors from any image
+
+### ⌨️ Workflow
+- **Command Palette (⌘K)** — Keyboard-driven workflow for all actions
+- **Undo/Redo History** — Full timeline with visual state management
+- **Dark/Light Mode** — Toggle between themes instantly
+- **Inline Editing (⌘E)** — Edit mockup text directly on the page
+- **Preset System** — Start from curated brand templates
+
+### 📤 Export
+- **DESIGN.md** — 9-section brand specification document
+- **brand.css** — CSS custom properties (design tokens)
+- **brand.json** — Complete brand state as JSON
+- **Brand Boards** — Light and dark mode screenshots
+- **One-click ZIP Export** — Everything in a single download
+
+### 🖼️ Mockup Templates
+- **Landing Page** — Modern SaaS/product landing page
+- **Dashboard** — Admin/analytics dashboard UI
+- **Portfolio** — Creative portfolio layout
+
+---
 
 ## 🚀 Quick Start
 
+### Local Development
+
 ```bash
+# Clone the repository
+git clone https://github.com/dot-RealityTest/kika-brand-lab.git
+cd kika-brand-lab
+
 # Install dependencies
 pnpm install
 
@@ -32,6 +67,18 @@ pnpm dev
 ```
 
 Open [http://localhost:3002](http://localhost:3002) in your browser.
+
+### Build for Production
+
+```bash
+# Build optimized production bundle
+pnpm build
+
+# Preview production build
+pnpm preview
+```
+
+---
 
 ## ⌨️ Keyboard Shortcuts
 
@@ -46,15 +93,7 @@ Open [http://localhost:3002](http://localhost:3002) in your browser.
 | `⌘⇧Z` | Redo |
 | `Esc` | Close panel / close palette |
 
-## 📦 Export Format
-
-Export produces a ZIP file containing:
-
-1. **DESIGN.md** — 9-section brand specification
-2. **brand.css** — CSS custom properties
-3. **brand.json** — Full brand state as JSON
-4. **brand-board-light.png** — Light mode brand board
-5. **brand-board-dark.png** — Dark mode brand board
+---
 
 ## 🏗️ Architecture
 
@@ -85,6 +124,8 @@ client/src/
 └── index.css                    # Tailwind v4 + CSS custom properties
 ```
 
+---
+
 ## 🎯 Brand State
 
 ```typescript
@@ -102,10 +143,12 @@ interface BrandState {
 }
 ```
 
+---
+
 ## 🛠️ Tech Stack
 
 - **React 19** + **TypeScript 5**
-- **Vite 7** (dev server)
+- **Vite 7** (dev server + build)
 - **Tailwind CSS v4** with `@theme inline`
 - **Framer Motion** for animations
 - **cmdk** for command palette
@@ -114,6 +157,67 @@ interface BrandState {
 - **JSZip** for export
 - **html2canvas** for screenshots
 - **Google Fonts API**
+
+---
+
+## 📊 SEO & GEO Optimized
+
+This project is optimized for both traditional search engines and AI-powered engines:
+
+### AI Engine Optimization
+- ✅ **ChatGPT** (GPTBot)
+- ✅ **Perplexity** (PerplexityBot)
+- ✅ **Google Gemini** (Google-Extended)
+- ✅ **Claude** (Anthropic-ai, ClaudeBot)
+- ✅ **Microsoft Copilot** (CCBot)
+
+### Structured Data
+- ✅ **SoftwareApplication** schema
+- ✅ **FAQPage** schema (5 Q&A)
+- ✅ **HowTo** schema (6-step guide)
+- ✅ **SoftwareSourceCode** schema
+- ✅ **Organization** schema
+
+### Traditional SEO
+- ✅ Meta tags (title, description, keywords)
+- ✅ Open Graph (Facebook, LinkedIn)
+- ✅ Twitter Cards
+- ✅ Pinterest Rich Pins
+- ✅ sitemap.xml
+- ✅ robots.txt
+
+---
+
+## 📤 Export Format
+
+Export produces a ZIP file containing:
+
+1. **DESIGN.md** — 9-section brand specification
+   - Brand overview
+   - Color palette
+   - Typography
+   - Logo usage
+   - Icon usage
+   - Voice & tone
+   - Imagery style
+   - Components
+   - Dos and don'ts
+
+2. **brand.css** — CSS custom properties
+   ```css
+   :root {
+     --brand-color-1: #D9D9D9;
+     --brand-color-2: #BFBFBF;
+     --brand-heading-font: "Arial Black", sans-serif;
+     --brand-body-font: "Fira Sans", system-ui;
+   }
+   ```
+
+3. **brand.json** — Full brand state
+4. **brand-board-light.png** — Light mode brand board
+5. **brand-board-dark.png** — Dark mode brand board
+
+---
 
 ## 🎨 Theming System
 
@@ -142,6 +246,8 @@ The UI reflects the brand palette through dynamic CSS custom properties:
 --ring
 ```
 
+---
+
 ## 📝 Design Decisions
 
 - **Dialog overlays** use `bg-foreground/50` so the overlay respects the theme
@@ -149,6 +255,31 @@ The UI reflects the brand palette through dynamic CSS custom properties:
 - **Logo/icon resizing** is drag-based on the right edge with pixel size preview
 - **Dark mode cards** use `mix(bg, midColor, ratio)` to avoid white backgrounds
 - **Accent backgrounds** use `mix(bg, accent, 0.15)` for better Tailwind compatibility
+- **AI crawler friendly** — robots.txt allows all major AI bots
+
+---
+
+## 🚀 Deployment
+
+### Vercel (Production)
+
+The app is deployed on Vercel with automatic deployments:
+
+```bash
+# Deploy to production
+vercel --prod
+```
+
+**Live URL:** https://brand.akakika.com
+
+### Custom Domain
+
+Configured with:
+- Domain: `brand.akakika.com`
+- DNS: Cloudflare (proxied)
+- SSL: Automatic via Vercel
+
+---
 
 ## 📄 License
 
@@ -156,4 +287,33 @@ The UI reflects the brand palette through dynamic CSS custom properties:
 
 ---
 
-Built with ❤️ by **KIKA**
+## 👨‍💻 Author
+
+**KIKA** ([@Kika_Loren](https://twitter.com/Kika_Loren))
+
+- **Website:** https://akakika.com
+- **GitHub:** https://github.com/dot-RealityTest
+- **Telegram:** @Kika_Loren
+
+---
+
+## 🙏 Acknowledgments
+
+- [shadcn/ui](https://ui.shadcn.com) — Beautiful UI components
+- [cmdk](https://cmdk.paco.me) — Command palette
+- [Vercel](https://vercel.com) — Hosting & deployment
+- [Google Fonts](https://fonts.google.com) — Typography
+
+---
+
+## 📞 Support
+
+For questions or issues:
+- **GitHub Issues:** https://github.com/dot-RealityTest/kika-brand-lab/issues
+- **Twitter:** [@Kika_Loren](https://twitter.com/Kika_Loren)
+- **Email:** via https://akakika.com
+
+---
+
+**Built with ❄️ by KIKA**  
+**Last Updated:** May 2, 2026

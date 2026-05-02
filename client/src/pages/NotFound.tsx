@@ -7,7 +7,8 @@ export default function NotFound() {
   const [, setLocation] = useLocation();
 
   const handleGoHome = () => {
-    setLocation("/");
+    // Use native navigation to go to the app's base path
+    window.location.href = '/brand/';
   };
 
   return (
