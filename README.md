@@ -1,77 +1,39 @@
-# Kika Brand Lab
+# Kika Brand Lab 🎨
 
-A real-time brand design system playground. Configure colors, fonts, logos, and export a complete brand specification — with every part of the UI visually responding to your chosen palette so your brand is felt everywhere.
+> **A real-time brand design system playground** — Configure colors, fonts, logos, and export a complete brand specification with every part of the UI visually responding to your chosen palette.
 
-## Quick Start
+![License](https://img.shields.io/badge/license-private-blue)
+![React](https://img.shields.io/badge/React-19-61dafb)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6)
+![Vite](https://img.shields.io/badge/Vite-7-646cff)
+![Tailwind](https://img.shields.io/badge/Tailwind-v4-38bdf8)
+
+## ✨ Features
+
+- **🎨 Live Brand Preview** — See your brand palette applied in real-time across the entire UI
+- **⌨️ Command Palette** — Keyboard-driven workflow (⌘K) for all brand controls
+- **🌗 Dark/Light Mode** — Full theme support with smart color mixing
+- **📤 Export System** — Generate DESIGN.md, CSS, JSON, and brand boards as ZIP
+- **📥 Import Support** — Load existing DESIGN.md files
+- **🖼️ Image Palette Extraction** — Upload images to auto-generate color palettes
+- **♿ WCAG Contrast Checker** — Ensure accessibility compliance
+- **↩️ Undo/Redo** — Full history timeline with visual state management
+- **✏️ Inline Editing** — Edit mockup text directly (⌘E)
+- **📐 Resizable Logo/Icon** — Drag-to-resize with pixel preview
+
+## 🚀 Quick Start
 
 ```bash
+# Install dependencies
 pnpm install
+
+# Start development server (port 3002)
 pnpm dev
 ```
 
-Opens on `http://localhost:3002`.
+Open [http://localhost:3002](http://localhost:3002) in your browser.
 
-## Architecture
-
-```
-client/src/
-├── App.tsx                      — Root app (ThemeProvider, Router, TooltipProvider, Toaster)
-├── pages/
-│   └── Home.tsx                 — Main layout (brand preview + command palette)
-├── contexts/
-│   ├── BrandContext.tsx          — Brand state (colors, fonts, name, tagline, logos, undo/redo, presets)
-│   ├── ThemeContext.tsx          — Global dark/light theme toggle
-│   ├── MockupTemplateContext.tsx — Selected mockup template (landing/dashboard/portfolio)
-│   └── MockupContentContext.tsx  — Editable mockup text, edit mode toggle, localStorage persistence
-├── hooks/
-│   ├── useThemeColors.ts        — Maps brand palette → CSS custom properties (light + dark)
-│   ├── useComposition.ts        — IME composition awareness for CJK input
-│   ├── useMobile.tsx             — Responsive breakpoint detection
-│   └── usePersistFn.ts           — Persistent function reference hook
-├── components/
-│   ├── CommandPalette.tsx        — Keyboard-driven command palette (⌘K)
-│   ├── BrandPreview.tsx          — Live brand preview with resizable logo/icon in edit mode
-│   ├── BrandMockup.tsx           — Mockup templates (landing, dashboard, portfolio)
-│   ├── ColorPaletteManager.tsx  — Color palette CRUD with drag-to-reorder
-│   ├── ColorSwatch.tsx           — Individual color swatch component
-│   ├── ContrastChecker.tsx      — WCAG contrast ratio checker
-│   ├── ComparisonView.tsx       — Side-by-side palette comparison
-│   ├── DesignMdUploader.tsx     — Import DESIGN.md to populate brand
-│   ├── ExportPanel.tsx          — Export brand as ZIP (DESIGN.md, CSS, JSON, brand boards)
-│   ├── FontControl.tsx          — Font picker (heading, body, mono)
-│   ├── ImagePaletteExtractor.tsx— Extract palette from uploaded images
-│   ├── LogoUploader.tsx          — Upload logo + icon with resize in edit mode
-│   ├── PresetSelector.tsx       — Brand presets (starter palettes)
-│   ├── HistoryTimeline.tsx      — Undo/redo timeline
-│   ├── EditableText.tsx         — Inline-editable text (only in edit mode)
-│   ├── ManusDialog.tsx           — Manus dialog wrapper
-│   ├── Map.tsx                   — Static map component
-│   ├── ErrorBoundary.tsx         — React error boundary
-│   └── ui/                      — shadcn/ui primitives (dialog, command, button, etc.)
-├── index.css                    — CSS custom properties, Tailwind v4 config, font-family
-└── main.tsx                     — Entry point
-```
-
-## Command Palette
-
-Press **⌘K** (or the ⚙ icon in the top-right corner) to open the command palette.
-
-### Panels (4 groups)
-
-| Group | Command | Panel Content |
-|------|---------|---------------|
-| **Brand & Typography** | Font Settings | Google Font picker for heading, body, mono |
-| | Logo & Icon Upload | Upload logo/icon images, resize in edit mode |
-| **Colors** | Color Palette & Contrast | Color palette manager + WCAG contrast checker (merged) |
-| | Extract from Image | Upload image → extract palette |
-| **Import / Export** | Import / Export Brand | Import DESIGN.md + export as ZIP (merged) |
-| | Extract from Image | Drag & drop image to extract colors |
-| **Mockup** | Edit Mockup Text | Toggle inline edit mode (⌘E) |
-| | Landing Page | Switch mockup template (⌘1) |
-| | Dashboard | Switch mockup template (⌘2) |
-| | Portfolio | Switch mockup template (⌘3) |
-
-### Keyboard Shortcuts
+## ⌨️ Keyboard Shortcuts
 
 | Shortcut | Action |
 |----------|--------|
@@ -84,17 +46,90 @@ Press **⌘K** (or the ⚙ icon in the top-right corner) to open the command pal
 | `⌘⇧Z` | Redo |
 | `Esc` | Close panel / close palette |
 
-## Theming System
+## 📦 Export Format
 
-The entire UI reflects the brand palette through CSS custom properties set by `useThemeColors.ts`:
+Export produces a ZIP file containing:
 
-- **Light mode**: Brand accent → `--primary`, lightest mid-color → `--card`, borders from `mix(bg, accent, ratio)`
-- **Dark mode**: Inverted — darkest colors become surfaces, `mix()` used for subtle elevation
-- All UI chrome uses semantic Tailwind classes (`text-foreground`, `bg-card`, `border-border`, etc.)
-- Brand palette hex values are content/data, not UI chrome — they stay as hex in `BrandContext`
+1. **DESIGN.md** — 9-section brand specification
+2. **brand.css** — CSS custom properties
+3. **brand.json** — Full brand state as JSON
+4. **brand-board-light.png** — Light mode brand board
+5. **brand-board-dark.png** — Dark mode brand board
 
-### Key CSS Variables (set dynamically)
+## 🏗️ Architecture
 
+```
+client/src/
+├── App.tsx                      # Root app (ThemeProvider, Router, TooltipProvider)
+├── pages/
+│   └── Home.tsx                 # Main layout (brand preview + command palette)
+├── contexts/
+│   ├── BrandContext.tsx         # Brand state (colors, fonts, logos, undo/redo)
+│   ├── ThemeContext.tsx         # Global dark/light theme toggle
+│   ├── MockupTemplateContext.tsx # Selected mockup template
+│   └── MockupContentContext.tsx # Editable mockup text, localStorage persistence
+├── hooks/
+│   ├── useThemeColors.ts        # Maps brand palette → CSS custom properties
+│   ├── useComposition.ts        # IME composition awareness for CJK input
+│   ├── useMobile.tsx            # Responsive breakpoint detection
+│   └── usePersistFn.ts          # Persistent function reference hook
+├── components/
+│   ├── CommandPalette.tsx       # Keyboard-driven command palette (⌘K)
+│   ├── BrandPreview.tsx         # Live brand preview with resizable logo
+│   ├── BrandMockup.tsx          # Mockup templates (landing, dashboard, portfolio)
+│   ├── ColorPaletteManager.tsx  # Color palette CRUD with drag-to-reorder
+│   ├── ContrastChecker.tsx      # WCAG contrast ratio checker
+│   ├── ExportPanel.tsx          # Export brand as ZIP
+│   ├── ImagePaletteExtractor.tsx # Extract palette from uploaded images
+│   └── ui/                      # shadcn/ui primitives
+└── index.css                    # Tailwind v4 + CSS custom properties
+```
+
+## 🎯 Brand State
+
+```typescript
+interface BrandState {
+  colors: ColorSwatch[];      // { id, hex, name }
+  headingFont: string;        // Google Font name
+  bodyFont: string;           // Google Font name
+  monoFont: string;           // Google Font name
+  brandName: string;
+  tagline: string;
+  logoUrl?: string;
+  iconUrl?: string;
+  logoSize?: number;          // px — resizable in edit mode
+  iconSize?: number;          // px — resizable in edit mode
+}
+```
+
+## 🛠️ Tech Stack
+
+- **React 19** + **TypeScript 5**
+- **Vite 7** (dev server)
+- **Tailwind CSS v4** with `@theme inline`
+- **Framer Motion** for animations
+- **cmdk** for command palette
+- **Radix UI** primitives
+- **Wouter** for routing
+- **JSZip** for export
+- **html2canvas** for screenshots
+- **Google Fonts API**
+
+## 🎨 Theming System
+
+The UI reflects the brand palette through dynamic CSS custom properties:
+
+### Light Mode
+- Brand accent → `--primary`
+- Lightest mid-color → `--card`
+- Borders from `mix(bg, accent, ratio)`
+
+### Dark Mode
+- Inverted — darkest colors become surfaces
+- `mix()` used for subtle elevation
+- Avoids blinding-white backgrounds
+
+### Key CSS Variables
 ```css
 --primary, --primary-foreground
 --background, --foreground
@@ -107,51 +142,18 @@ The entire UI reflects the brand palette through CSS custom properties set by `u
 --ring
 ```
 
-## Brand State
+## 📝 Design Decisions
 
-```typescript
-interface BrandState {
-  colors: ColorSwatch[];     // { id, hex, name }
-  headingFont: string;       // Google Font name
-  bodyFont: string;           // Google Font name
-  monoFont: string;           // Google Font name
-  brandName: string;
-  tagline: string;
-  logoUrl?: string;
-  iconUrl?: string;
-  logoSize?: number;          // px — resizable in edit mode
-  iconSize?: number;           // px — resizable in edit mode
-}
-```
+- **Dialog overlays** use `bg-foreground/50` so the overlay respects the theme
+- **Mockup text** is editable inline only when edit mode is toggled (⌘E)
+- **Logo/icon resizing** is drag-based on the right edge with pixel size preview
+- **Dark mode cards** use `mix(bg, midColor, ratio)` to avoid white backgrounds
+- **Accent backgrounds** use `mix(bg, accent, 0.15)` for better Tailwind compatibility
 
-## Export
+## 📄 License
 
-Export produces a ZIP file containing:
+**Private** — All rights reserved to KIKA.
 
-1. **DESIGN.md** — 9-section brand specification (inspired by Runway's getdesign.md)
-2. **brand.css** — CSS custom properties for the brand palette
-3. **brand.json** — Full brand state as JSON
-4. **brand-board-light.png** — Light mode brand board screenshot
-5. **brand-board-dark.png** — Dark mode brand board screenshot
+---
 
-## Design Decisions
-
-- **Dialog overlays** use `bg-foreground/50` (not `bg-black/50`) so the overlay respects the theme
-- **cmdk** library renders its own DOM — wrapped in themed `Command`/`CommandGroup`/`CommandItem` components in `ui/command.tsx`
-- **Mockup text** is editable inline only when edit mode is toggled on (⌘E)
-- **Logo/icon** resizing is drag-based on the right edge of the image, showing pixel size
-- **Dark mode card surfaces** use `mix(bg, midColor, ratio)` to avoid the blinding-white bug from using the lightest mid-color
-- **Accent backgrounds** use `mix(bg, accent, 0.15)` instead of 8-digit hex alpha (`accent.hex + "33"`) for better Tailwind compatibility
-
-## Tech Stack
-
-- **React 19** + **TypeScript**
-- **Vite 7** (dev server on port 3002)
-- **Tailwind CSS v4** with `@theme inline` and `@custom-variant dark`
-- **Framer Motion** for panel transitions
-- **cmdk** for command palette
-- **Radix UI** primitives (dialog, tooltip, etc.)
-- **Wouter** for routing
-- **JSZip** for export
-- **html2canvas** for brand board screenshots
-- **Google Fonts** via `fonts.googleapis.com`
+Built with ❤️ by **KIKA**
