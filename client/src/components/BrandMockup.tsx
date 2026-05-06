@@ -59,7 +59,7 @@ function LandingTemplate({ brand, bg, fg, muted, cardBg, accentColor, lightest, 
               { titleKey: "card2Title" as const, descKey: "card2Desc" as const },
               { titleKey: "card3Title" as const, descKey: "card3Desc" as const },
             ] as const
-          )).map(({ titleKey, descKey }) => (
+          ).map(({ titleKey, descKey }) => (
             <div key={titleKey} className="rounded-lg p-4 sm:p-5 border" style={{ backgroundColor: cardBg + "40", borderColor: muted + "20" }}>
               <div className="w-7 sm:w-8 h-7 sm:h-8 rounded-md mb-3 flex items-center justify-center" style={{ backgroundColor: accentColor + "20" }}>
                 <div className="w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-sm" style={{ backgroundColor: accentColor }} />
