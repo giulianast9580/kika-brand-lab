@@ -21,62 +21,62 @@ function LandingTemplate({ brand, bg, fg, muted, cardBg, accentColor, lightest, 
 
   return (
     <>
-      <nav className="flex items-center justify-between px-6 py-4 border-b" style={{ borderColor: muted + "20" }}>
+      <nav className="flex flex-col sm:flex-row items-start sm:items-center justify-between px-4 sm:px-6 py-3 sm:py-4 border-b gap-2 sm:gap-0" style={{ borderColor: muted + "20" }}>
         <div className="flex items-center gap-2">
-          {brand.logoUrl && <img src={brand.logoUrl} alt="Logo" className="w-6 h-6 object-contain" />}
-          <span className="text-sm font-bold tracking-tight" style={{ fontFamily: brand.headingFont, color: fg }}>
+          {brand.logoUrl && <img src={brand.logoUrl} alt="Logo" className="w-5 sm:w-6 h-5 sm:h-6 object-contain" />}
+          <span className="text-xs sm:text-sm font-bold tracking-tight" style={{ fontFamily: brand.headingFont, color: fg }}>
             {brand.brandName}
           </span>
         </div>
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-3 sm:gap-5 flex-wrap">
           {["Work", "About", "Services", "Contact"].map((item) => (
-            <span key={item} className="text-[11px] tracking-wide" style={{ fontFamily: brand.bodyFont, color: muted }}>
+            <span key={item} className="text-[10px] sm:text-[11px] tracking-wide" style={{ fontFamily: brand.bodyFont, color: muted }}>
               {item}
             </span>
           ))}
-          <EditableText editing={editing} value={c.cta1} onChange={(v) => updateField("landing", "cta1", v)} className="text-[10px] px-3 py-1 rounded-md font-medium" style={{ backgroundColor: accentColor, color: lightest, fontFamily: brand.bodyFont }} />
+          <EditableText editing={editing} value={c.cta1} onChange={(v) => updateField("landing", "cta1", v)} className="text-[9px] sm:text-[10px] px-2.5 sm:px-3 py-1 rounded-md font-medium" style={{ backgroundColor: accentColor, color: lightest, fontFamily: brand.bodyFont }} />
         </div>
       </nav>
 
-      <section className="px-6 py-12 text-center">
-        <p className="text-[10px] uppercase tracking-[0.3em] mb-3" style={{ fontFamily: brand.monoFont, color: accentColor }}>
+      <section className="px-4 sm:px-6 py-8 sm:py-12 text-center">
+        <p className="text-[9px] sm:text-[10px] uppercase tracking-[0.3em] mb-3" style={{ fontFamily: brand.monoFont, color: accentColor }}>
           {brand.tagline}
         </p>
-        <h1 className="text-4xl font-bold mb-4 leading-tight" style={{ fontFamily: brand.headingFont, color: fg }}>
-          <EditableText editing={editing} value={c.heading} onChange={(v) => updateField("landing", "heading", v)} multiline style={{ fontFamily: brand.headingFont, color: fg }} className="text-4xl font-bold leading-tight" />
+        <h1 className="text-2xl sm:text-4xl font-bold mb-4 leading-tight" style={{ fontFamily: brand.headingFont, color: fg }}>
+          <EditableText editing={editing} value={c.heading} onChange={(v) => updateField("landing", "heading", v)} multiline style={{ fontFamily: brand.headingFont, color: fg }} className="text-2xl sm:text-4xl font-bold leading-tight" />
         </h1>
-        <EditableText editing={editing} value={c.subheading} onChange={(v) => updateField("landing", "subheading", v)} multiline className="text-sm max-w-md mx-auto mb-6 leading-relaxed block" style={{ fontFamily: brand.bodyFont, color: muted }} />
+        <EditableText editing={editing} value={c.subheading} onChange={(v) => updateField("landing", "subheading", v)} multiline className="text-xs sm:text-sm max-w-md mx-auto mb-6 leading-relaxed block" style={{ fontFamily: brand.bodyFont, color: muted }} />
         <div className="flex items-center justify-center gap-3">
-          <EditableText editing={editing} value={c.cta2} onChange={(v) => updateField("landing", "cta2", v)} className="text-[11px] px-5 py-2 rounded-md font-medium border" style={{ borderColor: muted + "40", color: fg, fontFamily: brand.bodyFont }} />
+          <EditableText editing={editing} value={c.cta2} onChange={(v) => updateField("landing", "cta2", v)} className="text-[10px] sm:text-[11px] px-4 sm:px-5 py-2 rounded-md font-medium border" style={{ borderColor: muted + "40", color: fg, fontFamily: brand.bodyFont }} />
         </div>
       </section>
 
-      <section className="px-6 py-8">
-        <div className="grid grid-cols-3 gap-4">
+      <section className="px-4 sm:px-6 py-6 sm:py-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
           {(
             [
               { titleKey: "card1Title" as const, descKey: "card1Desc" as const },
               { titleKey: "card2Title" as const, descKey: "card2Desc" as const },
               { titleKey: "card3Title" as const, descKey: "card3Desc" as const },
             ] as const
-          ).map(({ titleKey, descKey }) => (
-            <div key={titleKey} className="rounded-lg p-5 border" style={{ backgroundColor: cardBg + "40", borderColor: muted + "20" }}>
-              <div className="w-8 h-8 rounded-md mb-3 flex items-center justify-center" style={{ backgroundColor: accentColor + "20" }}>
-                <div className="w-3 h-3 rounded-sm" style={{ backgroundColor: accentColor }} />
+          )).map(({ titleKey, descKey }) => (
+            <div key={titleKey} className="rounded-lg p-4 sm:p-5 border" style={{ backgroundColor: cardBg + "40", borderColor: muted + "20" }}>
+              <div className="w-7 sm:w-8 h-7 sm:h-8 rounded-md mb-3 flex items-center justify-center" style={{ backgroundColor: accentColor + "20" }}>
+                <div className="w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-sm" style={{ backgroundColor: accentColor }} />
               </div>
-              <EditableText editing={editing} value={c[titleKey]} onChange={(v) => updateField("landing", titleKey, v)} className="text-sm font-bold mb-1.5 block" style={{ fontFamily: brand.headingFont, color: fg }} />
-              <EditableText editing={editing} value={c[descKey]} onChange={(v) => updateField("landing", descKey, v)} multiline className="text-[11px] leading-relaxed block" style={{ fontFamily: brand.bodyFont, color: muted }} />
+              <EditableText editing={editing} value={c[titleKey]} onChange={(v) => updateField("landing", titleKey, v)} className="text-xs sm:text-sm font-bold mb-1.5 block" style={{ fontFamily: brand.headingFont, color: fg }} />
+              <EditableText editing={editing} value={c[descKey]} onChange={(v) => updateField("landing", descKey, v)} multiline className="text-[10px] sm:text-[11px] leading-relaxed block" style={{ fontFamily: brand.bodyFont, color: muted }} />
             </div>
           ))}
         </div>
       </section>
 
-      <footer className="px-6 py-4 border-t" style={{ borderColor: muted + "20" }}>
-        <div className="flex items-center justify-between">
-          <span className="text-[9px] font-mono" style={{ color: muted }}>&copy; 2026 {brand.brandName}</span>
-          <div className="flex items-center gap-4">
+      <footer className="px-4 sm:px-6 py-3 sm:py-4 border-t" style={{ borderColor: muted + "20" }}>
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0">
+          <span className="text-[8px] sm:text-[9px] font-mono" style={{ color: muted }}>&copy; 2026 {brand.brandName}</span>
+          <div className="flex items-center gap-3 sm:gap-4 flex-wrap">
             {["Twitter", "GitHub", "Dribbble"].map((s) => (
-              <span key={s} className="text-[9px]" style={{ fontFamily: brand.monoFont, color: muted }}>{s}</span>
+              <span key={s} className="text-[8px] sm:text-[9px]" style={{ fontFamily: brand.monoFont, color: muted }}>{s}</span>
             ))}
           </div>
         </div>

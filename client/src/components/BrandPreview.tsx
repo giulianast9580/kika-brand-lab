@@ -107,7 +107,7 @@ function PreviewBoard({
 
   return (
     <div
-      className={`rounded-lg border border-border p-8 flex flex-col gap-6 h-full transition-colors duration-300 relative ${hasStaged ? "mt-10 rounded-t-none" : ""}`}
+      className={`rounded-lg border border-border p-4 sm:p-8 flex flex-col gap-6 h-full transition-colors duration-300 relative ${hasStaged ? "mt-10 rounded-t-none" : ""}`}
       style={{ backgroundColor: bgColor }}
     >
       {/* Mode Label */}
@@ -122,7 +122,7 @@ function PreviewBoard({
 
       {/* Logo & Icon Row */}
       {(brand.logoUrl || brand.iconUrl) && (
-        <div className="flex items-start justify-center gap-8 mt-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mt-4">
           {brand.logoUrl && (
             <div className="flex flex-col items-center gap-1">
               <ResizableImage
@@ -170,7 +170,7 @@ function PreviewBoard({
           {brand.tagline}
         </p>
         <h1
-          className="text-6xl md:text-7xl lg:text-8xl font-black tracking-tight transition-colors duration-300"
+          className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight transition-colors duration-300"
           style={{ color: textColor, fontFamily: brand.headingFont }}
         >
           {brand.brandName}
