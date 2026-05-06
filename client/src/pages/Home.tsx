@@ -15,8 +15,8 @@ function BrandLab() {
 
   return (
     <div className="min-h-screen bg-background text-foreground p-4 md:p-6 lg:p-8 transition-colors duration-300">
-      <header className="mb-6">
-        <div className="flex items-center justify-between mb-4">
+      <header className="mb-6 overflow-hidden">
+        <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
           <div className="flex items-center gap-3">
             <span className="text-[10px] font-mono text-muted-foreground tracking-wider uppercase">
               kika_lab
@@ -27,7 +27,7 @@ function BrandLab() {
             </span>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-wrap">
             <div className="flex items-center gap-1 bg-card border border-border rounded-md px-2 py-1">
               <button
                 onClick={undo}

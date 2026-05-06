@@ -90,9 +90,9 @@ function DashboardTemplate({ brand, bg, fg, muted, cardBg, accentColor, lightest
   const c = content.dashboard;
 
   return (
-    <div className="flex h-[420px]">
-      <aside className="w-48 border-r flex flex-col py-4 px-3" style={{ borderColor: muted + "20", backgroundColor: cardBg + "30" }}>
-        <div className="flex items-center gap-2 mb-6 px-2">
+    <div className="flex flex-col sm:flex-row h-auto sm:h-[420px]">
+      <aside className="w-full sm:w-48 flex-shrink-0 border-r flex flex-row sm:flex-col py-3 sm:py-4 px-3 gap-2 sm:gap-0 overflow-x-auto sm:overflow-visible" style={{ borderColor: muted + "20", backgroundColor: cardBg + "30" }}>
+        <div className="flex items-center gap-2 mb-0 sm:mb-6 px-2 shrink-0">
           {brand.logoUrl && <img src={brand.logoUrl} alt="Logo" className="w-5 h-5 object-contain" />}
           <span className="text-[11px] font-bold" style={{ fontFamily: brand.headingFont, color: fg }}>
             {brand.brandName}
@@ -107,7 +107,7 @@ function DashboardTemplate({ brand, bg, fg, muted, cardBg, accentColor, lightest
         ].map((item) => (
           <div
             key={item.label}
-            className="text-[10px] px-3 py-2 rounded-md mb-1"
+            className="text-[10px] px-3 py-2 rounded-md mb-0 sm:mb-1 whitespace-nowrap"
             style={{
               fontFamily: brand.bodyFont,
               color: item.active ? lightest : muted,
@@ -118,13 +118,13 @@ function DashboardTemplate({ brand, bg, fg, muted, cardBg, accentColor, lightest
             {item.label}
           </div>
         ))}
-        <div className="mt-auto px-2">
+        <div className="mt-auto px-2 hidden sm:block">
           <div className="text-[8px] font-mono" style={{ color: muted }}>v2.4.1</div>
         </div>
       </aside>
 
       <div className="flex-1 flex flex-col overflow-hidden">
-        <header className="flex items-center justify-between px-5 py-3 border-b" style={{ borderColor: muted + "20" }}>
+        <header className="flex flex-col sm:flex-row items-start sm:items-center justify-between px-4 sm:px-5 py-3 border-b gap-2 sm:gap-0" style={{ borderColor: muted + "20" }}>
           <div>
             <EditableText editing={editing} value={c.pageTitle} onChange={(v) => updateField("dashboard", "pageTitle", v)} className="text-sm font-bold block" style={{ fontFamily: brand.headingFont, color: fg }} />
             <EditableText editing={editing} value={c.subtitle} onChange={(v) => updateField("dashboard", "subtitle", v)} className="text-[9px] block" style={{ fontFamily: brand.monoFont, color: muted }} />
@@ -135,8 +135,8 @@ function DashboardTemplate({ brand, bg, fg, muted, cardBg, accentColor, lightest
           </div>
         </header>
 
-        <div className="flex-1 p-5 overflow-auto">
-          <div className="grid grid-cols-4 gap-3 mb-5">
+        <div className="flex-1 p-4 sm:p-5 overflow-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
             {(["stat1", "stat2", "stat3", "stat4"] as const).map((key) => (
               <div key={key} className="rounded-lg p-3 border" style={{ backgroundColor: cardBg + "30", borderColor: muted + "15" }}>
                 <EditableText editing={editing} value={c[`${key}Label` as keyof typeof c]} onChange={(v) => updateField("dashboard", `${key}Label` as keyof typeof c, v)} className="text-[8px] uppercase tracking-wider mb-1 block" style={{ fontFamily: brand.monoFont, color: muted }} />
@@ -147,7 +147,7 @@ function DashboardTemplate({ brand, bg, fg, muted, cardBg, accentColor, lightest
           </div>
 
           <div className="rounded-lg border p-4 mb-4" style={{ backgroundColor: cardBg + "20", borderColor: muted + "15" }}>
-            <div className="flex items-center justify-between mb-3">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-3 gap-2 sm:gap-0">
               <span className="text-[10px] font-bold" style={{ fontFamily: brand.headingFont, color: fg }}>Performance</span>
               <div className="flex gap-2">
                 {["7D", "30D", "90D"].map((t) => (
@@ -163,13 +163,13 @@ function DashboardTemplate({ brand, bg, fg, muted, cardBg, accentColor, lightest
           </div>
 
           <div className="rounded-lg border overflow-hidden" style={{ borderColor: muted + "15" }}>
-            <div className="grid grid-cols-4 gap-0 text-[9px] border-b" style={{ borderColor: muted + "15", backgroundColor: cardBg + "30" }}>
+            <div className="hidden sm:grid grid-cols-4 gap-0 text-[9px] border-b" style={{ borderColor: muted + "15", backgroundColor: cardBg + "30" }}>
               {["Project", "Status", "Progress", "Due"].map((h) => (
                 <div key={h} className="px-3 py-2 font-bold uppercase tracking-wider" style={{ fontFamily: brand.monoFont, color: muted }}>{h}</div>
               ))}
             </div>
             {(["project1", "project2", "project3"] as const).map((key) => (
-              <div key={key} className="grid grid-cols-4 gap-0 text-[9px] border-b last:border-0" style={{ borderColor: muted + "10" }}>
+              <div key={key} className="grid grid-cols-2 sm:grid-cols-4 gap-0 text-[9px] border-b last:border-0" style={{ borderColor: muted + "10" }}>
                 <div className="px-3 py-2" style={{ fontFamily: brand.bodyFont, color: fg }}>
                   <EditableText editing={editing} value={c[`${key}Name` as keyof typeof c]} onChange={(v) => updateField("dashboard", `${key}Name` as keyof typeof c, v)} className="block" style={{ fontFamily: brand.bodyFont, color: fg }} />
                 </div>
@@ -202,49 +202,49 @@ function PortfolioTemplate({ brand, bg, fg, muted, cardBg, accentColor, lightest
 
   return (
     <>
-      <nav className="flex items-center justify-between px-8 py-5">
+      <nav className="flex flex-col sm:flex-row items-start sm:items-center justify-between px-4 sm:px-8 py-3 sm:py-5 gap-2 sm:gap-0">
         <div className="flex items-center gap-2">
           {brand.logoUrl && <img src={brand.logoUrl} alt="Logo" className="w-5 h-5 object-contain" />}
           <span className="text-xs font-bold tracking-tight" style={{ fontFamily: brand.headingFont, color: fg }}>
             {brand.brandName}
           </span>
         </div>
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-4 sm:gap-6 flex-wrap">
           {["Work", "Info", "Contact"].map((item) => (
-            <span key={item} className="text-[10px]" style={{ fontFamily: brand.monoFont, color: muted }}>{item}</span>
+            <span key={item} className="text-[10px] sm:text-[11px]" style={{ fontFamily: brand.monoFont, color: muted }}>{item}</span>
           ))}
         </div>
       </nav>
 
-      <section className="px-8 py-8">
+      <section className="px-4 sm:px-8 py-6 sm:py-8">
         <p className="text-[9px] uppercase tracking-[0.4em] mb-2" style={{ fontFamily: brand.monoFont, color: accentColor }}>
           {brand.tagline}
         </p>
-        <h1 className="text-3xl font-bold leading-tight mb-2" style={{ fontFamily: brand.headingFont, color: fg }}>
+        <h1 className="text-2xl sm:text-3xl font-bold leading-tight mb-2" style={{ fontFamily: brand.headingFont, color: fg }}>
           <EditableText editing={editing} value={c.headingLine1} onChange={(v) => updateField("portfolio", "headingLine1", v)} className="block" style={{ fontFamily: brand.headingFont, color: fg }} /><br />
           <EditableText editing={editing} value={c.headingLine2} onChange={(v) => updateField("portfolio", "headingLine2", v)} className="block" style={{ fontFamily: brand.headingFont, color: fg }} /><br />
           <EditableText editing={editing} value={c.headingLine3} onChange={(v) => updateField("portfolio", "headingLine3", v)} className="block" style={{ fontFamily: brand.headingFont, color: fg }} />
         </h1>
-        <EditableText editing={editing} value={c.description} onChange={(v) => updateField("portfolio", "description", v)} multiline className="text-[11px] max-w-xs leading-relaxed block" style={{ fontFamily: brand.bodyFont, color: muted }} />
+        <EditableText editing={editing} value={c.description} onChange={(v) => updateField("portfolio", "description", v)} multiline className="text-[10px] sm:text-[11px] max-w-full sm:max-w-xs leading-relaxed block" style={{ fontFamily: brand.bodyFont, color: muted }} />
       </section>
 
-      <section className="px-8 py-4">
-        <div className="flex items-center justify-between mb-4">
+      <section className="px-4 sm:px-8 py-4">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 gap-2 sm:gap-0">
           <span className="text-[9px] uppercase tracking-[0.3em]" style={{ fontFamily: brand.monoFont, color: muted }}>Selected Work</span>
           <span className="text-[9px]" style={{ fontFamily: brand.monoFont, color: accentColor }}>View All →</span>
         </div>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {(["project1", "project2", "project3", "project4"] as const).map((key, i) => (
             <div key={key} className="rounded-lg overflow-hidden border group" style={{ borderColor: muted + "15" }}>
               <div
-                className="h-24 flex items-center justify-center"
+                className="h-20 sm:h-24 flex items-center justify-center"
                 style={{ backgroundColor: i % 2 === 0 ? accentColor + "12" : cardBg + "50" }}
               >
-                <div className="w-12 h-8 rounded" style={{ backgroundColor: i % 2 === 0 ? accentColor + "30" : muted + "20" }} />
+                <div className="w-10 sm:w-12 h-6 sm:h-8 rounded" style={{ backgroundColor: i % 2 === 0 ? accentColor + "30" : muted + "20" }} />
               </div>
               <div className="p-3">
                 <div className="flex items-center justify-between mb-1">
-                  <EditableText editing={editing} value={c[`${key}Title` as keyof typeof c]} onChange={(v) => updateField("portfolio", `${key}Title` as keyof typeof c, v)} className="text-[11px] font-bold" style={{ fontFamily: brand.headingFont, color: fg }} />
+                  <EditableText editing={editing} value={c[`${key}Title` as keyof typeof c]} onChange={(v) => updateField("portfolio", `${key}Title` as keyof typeof c, v)} className="text-[10px] sm:text-[11px] font-bold" style={{ fontFamily: brand.headingFont, color: fg }} />
                   <span className="text-[8px]" style={{ fontFamily: brand.monoFont, color: muted }}>{2026 - i}</span>
                 </div>
                 <span className="text-[8px] px-1.5 py-0.5 rounded" style={{ backgroundColor: accentColor + "15", color: accentColor, fontFamily: brand.monoFont }}>
@@ -256,13 +256,13 @@ function PortfolioTemplate({ brand, bg, fg, muted, cardBg, accentColor, lightest
         </div>
       </section>
 
-      <footer className="px-8 py-5 mt-4 border-t" style={{ borderColor: muted + "15" }}>
-        <div className="flex items-center justify-between">
+      <footer className="px-4 sm:px-8 py-4 sm:py-5 mt-4 border-t" style={{ borderColor: muted + "15" }}>
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0">
           <div className="flex items-center gap-2">
             {brand.iconUrl && <img src={brand.iconUrl} alt="Icon" className="w-3 h-3 object-contain" />}
             <span className="text-[8px] font-mono" style={{ color: muted }}>&copy; 2026 {brand.brandName}</span>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 sm:gap-4 flex-wrap">
             {["GitHub", "Dribbble", "LinkedIn", "Email"].map((s) => (
               <span key={s} className="text-[8px]" style={{ fontFamily: brand.monoFont, color: muted }}>{s}</span>
             ))}
