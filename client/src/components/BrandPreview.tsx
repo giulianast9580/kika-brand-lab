@@ -122,7 +122,7 @@ function PreviewBoard({
 
       {/* Logo & Icon Row */}
       {(brand.logoUrl || brand.iconUrl) && (
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mt-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mt-4 max-w-full">
           {brand.logoUrl && (
             <div className="flex flex-col items-center gap-1">
               <ResizableImage
@@ -348,7 +348,7 @@ function ResizableImage({
     <div className="flex flex-col items-center gap-1">
       <div
         ref={containerRef}
-        className={`relative group/logo inline-flex items-center justify-center ${editing ? "cursor-default" : ""}`}
+        className={`relative group/logo inline-flex items-center justify-center max-w-full ${editing ? "cursor-default" : ""}`}
         style={{ width: clampedWidth }}
       >
         <img
